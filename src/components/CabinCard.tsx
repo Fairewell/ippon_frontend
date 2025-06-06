@@ -6,6 +6,7 @@ interface CabinCardProps {
   price: number;
   imageUrl: string;
   alt?: string;
+  onBook?: () => void; // Добавлен обработчик бронирования
 }
 
 const CabinCard: React.FC<CabinCardProps> = ({
@@ -13,7 +14,8 @@ const CabinCard: React.FC<CabinCardProps> = ({
   description,
   price,
   imageUrl,
-  alt
+  alt,
+  onBook
 }) => {
   return (
     <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800/50 to-violet-900/30 backdrop-blur-md border border-violet-500/30 p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:border-purple-400/50 group">
@@ -34,9 +36,12 @@ const CabinCard: React.FC<CabinCardProps> = ({
         <span className="text-2xl font-[raleway] lining-nums font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-500">
           ₽{price}/ночь
         </span>
-        <button className="px-5 py-2.5 font-[unbounded] font-bold text-white bg-gradient-to-r from-purple-600 to-violet-800 rounded-xl
-                          transition-all duration-300 hover:from-purple-700 hover:to-violet-900 hover:shadow-lg hover:shadow-purple-500/30
-                          transform hover:scale-105 group-hover:-translate-y-0.5">
+        <button
+          onClick={onBook}
+          className="px-5 py-2.5 font-[unbounded] font-bold text-white bg-gradient-to-r from-purple-600 to-violet-800 rounded-xl
+                      transition-all duration-300 hover:from-purple-700 hover:to-violet-900 hover:shadow-lg hover:shadow-purple-500/30
+                      transform hover:scale-105 group-hover:-translate-y-0.5"
+        >
           Забронировать
         </button>
       </div>

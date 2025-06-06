@@ -13,5 +13,8 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/backend/, '/api')
       }
     }
-  }
+  },
+  // Добавляем поддержку переменных окружения
+  envDir: './',
+  envPrefix: 'VITE_'
 })

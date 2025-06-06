@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Базовый URL API (будет проксироваться через Vite)
-const API_BASE_URL = '/backend';
+// Базовый URL API из переменных окружения
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/backend';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -59,8 +59,14 @@ export const cartAPI = {
 };
 
 export const bookingAPI = {
-  createBooking: (serviceId: number, startDate: string, endDate: string) => 
-    api.post('/bookings', { serviceId, startDate, endDate }),
+  createBooking: (data: {
+    serviceId: number;
+    startDate: string;
+    endDate: string;
+    guestName?: string;
+    guestEmail?: string;
+    guestPhone?: string;
+  }) => api.post('/bookings', data),
   
   getUserBookings: () => api.get('/bookings'),
   

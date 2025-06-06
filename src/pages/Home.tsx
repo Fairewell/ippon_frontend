@@ -67,6 +67,16 @@ const Home: React.FC = () => {
 
   return (
     <div className="w-full bg-gradient-to-b from-gray-900 to-black text-white">
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.6s ease-out forwards;
+          opacity: 0;
+        }
+      `}</style>
       {/* Герой-секция с каруселью */}
       <section className="relative overflow-hidden py-16 md:py-24 h-[80vh] flex items-center">
         {/* Карусель фоновых изображений */}
@@ -89,13 +99,13 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 bg-opacity-50 backdrop-blur-md"></div>
         
         <div className="w-full px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-600 font-[unbounded]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-600 font-[unbounded] animate-fade-in">
             БАЗА ОТДЫХА <span className="text-violet-400">IPPON</span>
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl mb-8 mx-auto max-w-2xl text-gray-200 font-[raleway] font-medium">
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 mx-auto max-w-2xl text-gray-200 font-[raleway] font-medium animate-fade-in">
             Отдых в гармонии с природой на берегу озера Щучье
           </p>
-          <button className="inline-block px-8 py-3 text-lg font-[unbounded] font-bold text-white bg-gradient-to-r from-purple-600 to-violet-800 rounded-full
+          <button className="inline-block px-8 py-3 text-lg font-[unbounded] font-bold text-white bg-gradient-to-r from-purple-600 to-violet-800 rounded-full animate-fade-in
                             transition-all duration-300 hover:from-purple-700 hover:to-violet-900 hover:shadow-lg hover:shadow-purple-500/20
                             transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-violet-500">
             Забронировать сейчас
@@ -122,7 +132,7 @@ const Home: React.FC = () => {
       {/* Секция с домиками (карусель) */}
       <section className="w-full px-4 py-16 bg-gradient-to-b from-transparent to-gray-800/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center font-[unbounded] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-600">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center font-[unbounded] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-600 animate-fade-in">
             Наши домики
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-violet-700 mx-auto mb-12 rounded-full"></div>
@@ -198,23 +208,23 @@ const Home: React.FC = () => {
         ></div>
         
         <div className="relative max-w-7xl mx-auto px-4 z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center font-[unbounded] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-600">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center font-[unbounded] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-600 animate-fade-in">
             Услуги и преимущества
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-violet-700 mx-auto mb-12 rounded-full"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center p-6 rounded-xl bg-gray-800/50 backdrop-blur-md border border-violet-500/20 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <div className="text-center p-6 rounded-xl bg-gray-800/50 backdrop-blur-md border border-violet-500/20 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in">
               <span className="inline-block text-4xl mb-4 bg-gradient-to-br from-purple-400 to-violet-600 bg-clip-text text-transparent">🏊</span>
               <h3 className="text-lg font-bold mb-2 font-[unbounded] text-white">Бассейн и SPA</h3>
               <p className="text-gray-300 font-[raleway] text-sm">Крытый подогреваемый бассейн и комплекс SPA-услуг</p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-gray-800/50 backdrop-blur-md border border-violet-500/20 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <div className="text-center p-6 rounded-xl bg-gray-800/50 backdrop-blur-md border border-violet-500/20 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in">
               <span className="inline-block text-4xl mb-4 bg-gradient-to-br from-purple-400 to-violet-600 bg-clip-text text-transparent">🚣</span>
               <h3 className="text-lg font-bold mb-2 font-[unbounded] text-white">Активный отдых</h3>
               <p className="text-gray-300 font-[raleway] text-sm">Прогулки на лодках, велосипеды и пешие маршруты</p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-gray-800/50 backdrop-blur-md border border-violet-500/20 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <div className="text-center p-6 rounded-xl bg-gray-800/50 backdrop-blur-md border border-violet-500/20 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in">
               <span className="inline-block text-4xl mb-4 bg-gradient-to-br from-purple-400 to-violet-600 bg-clip-text text-transparent">🍽️</span>
               <h3 className="text-lg font-bold mb-2 font-[unbounded] text-white">Ресторан</h3>
               <p className="text-gray-300 font-[raleway] text-sm">Блюда из местных экологически чистых продуктов</p>
