@@ -1,47 +1,49 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import CabinCard from '../components/CabinCard';
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
   const cabins = [
     {
       id: 1,
-      title: "Стандарт Люкс",
-      description: "Уютный домик с видом на озеро, современный интерьер",
-      price: 5000,
-      imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop",
-      alt: "Домик Стандарт Люкс с видом на озеро"
+      title: "Домик 1",
+      description: "Уютный домик с видом на озеро, современный интерьер 12 мест",
+      price: 600,
+      imageUrl: "https://downloader.disk.yandex.ru/preview/6233c958f1486c79a93321d3bbfbd44d55b0431d14e35110efe9701d956c15f4/684d89c1/3i8SvC7WERv5JgtrM4WrYujFd9ODXT6RT5_LO_X22V-E3w2jk7FU8_WIDY68LKxSf-XQRzW6xCdsgiB7v6u72A%3D%3D?uid=0&filename=5470122863206981255.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v3&size=2048x2048",
+      alt: "Домик Стандарт"
     },
     {
       id: 2,
       title: "Премиум Вилла",
-      description: "Просторная вилла с бассейном и панорамными окнами",
-      price: 12000,
-      imageUrl: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop",
-      alt: "Премиум Вилла с панорамными окнами"
+      description: "Просторная вилла",
+      price: 4300,
+      imageUrl: "https://disk.yandex.ru/i/P6iqfvhTFeXKtQ",
+      alt: "Премиум Вилла"
     },
     {
       id: 3,
       title: "Эко Бунгало",
       description: "Экологичное жильё в стиле минимализм с выходом к лесу",
-      price: 3500,
-      imageUrl: "https://images.unsplash.com/photo-1597077353333-1a9e97424b1b?auto=format&fit=crop",
+      price: 2900,
+      imageUrl: "https://disk.yandex.ru/i/mLEI0wT24uFoRg",
       alt: "Эко Бунгало в лесу"
     },
     {
       id: 4,
-      title: "Лесной Дом",
+      title: "Домик 2",
       description: "Деревянный дом в окружении соснового леса",
-      price: 6000,
-      imageUrl: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop",
+      price: 800,
+      imageUrl: "https://disk.yandex.ru/i/2JOmfGuf6rOwhQ",
       alt: "Лесной Дом среди сосен"
     }
   ];
 
   const [heroIndex, setHeroIndex] = React.useState(0);
   const heroImages = [
-    'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1455156218386-6e6f33508429?auto=format&fit=crop'
+    'https://b1b27eaa3f.cbaul-cdnwnd.com/96b91b15702471974376c7c35cc2ec28/200000041-e00a9e00ab/0a6f5c41152e67ec2d66c3841868.webp?ph=b1b27eaa3f',
+    'https://b1b27eaa3f.cbaul-cdnwnd.com/96b91b15702471974376c7c35cc2ec28/200000094-e3d33e3d35/%D1%89%D1%83%D1%87%D0%BA%D0%B0.webp?ph=b1b27eaa3f',
+    'https://b1b27eaa3f.cbaul-cdnwnd.com/96b91b15702471974376c7c35cc2ec28/200000045-8e29f8e2a0/%D0%B2%D1%81%D1%8F%20%D0%B1%D0%B0%D0%B7%D0%B0.webp?ph=b1b27eaa3f'
   ];
 
   React.useEffect(() => {
@@ -66,7 +68,7 @@ const Home: React.FC = () => {
   // Удаляем вычисление видимой группы (теперь управляется через transform)
 
   return (
-    <div className="w-full bg-gradient-to-b from-gray-900 to-black text-white">
+    <div className="w-full bg-white text-gray-800">
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }
@@ -99,14 +101,14 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 bg-opacity-50 backdrop-blur-md"></div>
         
         <div className="w-full px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-600 font-[unbounded] animate-fade-in">
-            БАЗА ОТДЫХА <span className="text-violet-400">IPPON</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 font-[unbounded] animate-fade-in">
+            БАЗА ОТДЫХА <span className="text-blue-700">IPPON</span>
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl mb-8 mx-auto max-w-2xl text-gray-200 font-[raleway] font-medium animate-fade-in">
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 mx-auto max-w-2xl text-gray-700 font-[raleway] font-medium animate-fade-in">
             Отдых в гармонии с природой на берегу озера Щучье
           </p>
-          <button className="inline-block px-8 py-3 text-lg font-[unbounded] font-bold text-white bg-gradient-to-r from-purple-600 to-violet-800 rounded-full animate-fade-in
-                            transition-all duration-300 hover:from-purple-700 hover:to-violet-900 hover:shadow-lg hover:shadow-purple-500/20
+          <button className="inline-block px-8 py-3 text-lg font-[unbounded] font-bold text-white bg-gradient-to-r from-blue-600 to-blue-800 rounded-full animate-fade-in
+                            transition-all duration-300 hover:from-blue-700 hover:to-blue-900 hover:shadow-lg hover:shadow-blue-500/20
                             transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-violet-500">
             Забронировать сейчас
           </button>
@@ -120,8 +122,8 @@ const Home: React.FC = () => {
               onClick={() => setHeroIndex(index)}
               className={`w-3 h-3 rounded-full transition-all ${
                 index === heroIndex
-                  ? 'bg-violet-600 w-6'
-                  : 'bg-white/30 hover:bg-white/50'
+                  ? 'bg-blue-600 w-6'
+                  : 'bg-gray-300 hover:bg-gray-500'
               }`}
               aria-label={`Перейти к слайду ${index + 1}`}
             />
@@ -130,12 +132,12 @@ const Home: React.FC = () => {
       </section>
 
       {/* Секция с домиками (карусель) */}
-      <section className="w-full px-4 py-16 bg-gradient-to-b from-transparent to-gray-800/50">
+      <section className="w-full px-4 py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center font-[unbounded] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-600 animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center font-[unbounded] text-blue-800 animate-fade-in">
             Наши домики
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-violet-700 mx-auto mb-12 rounded-full"></div>
+          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-12 rounded-full"></div>
           
           <div className="relative">
             {/* Кнопки навигации */}
@@ -143,7 +145,7 @@ const Home: React.FC = () => {
               <>
                 <button
                   onClick={prevGroup}
-                  className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 backdrop-blur-sm rounded-full p-3 hover:bg-violet-700 transition-all duration-300 hover:scale-110 animate-pulse-once"
+                  className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm rounded-full p-3 hover:bg-blue-600 transition-all duration-300 hover:scale-110 animate-pulse-once"
                   aria-label="Предыдущие домики"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -153,7 +155,7 @@ const Home: React.FC = () => {
                 
                 <button
                   onClick={nextGroup}
-                  className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 backdrop-blur-sm rounded-full p-3 hover:bg-violet-700 transition-all duration-300 hover:scale-110 animate-pulse-once"
+                  className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm rounded-full p-3 hover:bg-blue-600 transition-all duration-300 hover:scale-110 animate-pulse-once"
                   aria-label="Следующие домики"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -181,11 +183,13 @@ const Home: React.FC = () => {
                             className="relative overflow-hidden rounded-xl bg-gray-800/40 backdrop-blur-md border border-violet-500/20 shadow-md hover:shadow-lg transition-all duration-300"
                           >
                             <CabinCard
+                              id={cabin.id}
                               title={cabin.title}
                               description={cabin.description}
                               price={cabin.price}
                               imageUrl={cabin.imageUrl}
                               alt={cabin.alt}
+                              onBook={(id) => navigate('/booking', { state: { serviceId: id } })}
                             />
                           </div>
                         ))}
@@ -208,26 +212,26 @@ const Home: React.FC = () => {
         ></div>
         
         <div className="relative max-w-7xl mx-auto px-4 z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center font-[unbounded] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-600 animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center font-[unbounded] text-blue-800 animate-fade-in">
             Услуги и преимущества
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-violet-700 mx-auto mb-12 rounded-full"></div>
+          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-12 rounded-full"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center p-6 rounded-xl bg-gray-800/50 backdrop-blur-md border border-violet-500/20 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in">
-              <span className="inline-block text-4xl mb-4 bg-gradient-to-br from-purple-400 to-violet-600 bg-clip-text text-transparent">🏊</span>
-              <h3 className="text-lg font-bold mb-2 font-[unbounded] text-white">Бассейн и SPA</h3>
-              <p className="text-gray-300 font-[raleway] text-sm">Крытый подогреваемый бассейн и комплекс SPA-услуг</p>
+            <div className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-md border border-blue-200/30 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in">
+              <span className="inline-block text-4xl mb-4 bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent">🏊</span>
+              <h3 className="text-lg font-bold mb-2 font-[unbounded] text-gray-800">Баня</h3>
+              <p className="text-gray-700 font-[raleway] text-sm">Крытая баня с сауной</p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-gray-800/50 backdrop-blur-md border border-violet-500/20 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in">
-              <span className="inline-block text-4xl mb-4 bg-gradient-to-br from-purple-400 to-violet-600 bg-clip-text text-transparent">🚣</span>
-              <h3 className="text-lg font-bold mb-2 font-[unbounded] text-white">Активный отдых</h3>
-              <p className="text-gray-300 font-[raleway] text-sm">Прогулки на лодках, велосипеды и пешие маршруты</p>
+            <div className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-md border border-blue-200/30 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in">
+              <span className="inline-block text-4xl mb-4 bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent">🚣</span>
+              <h3 className="text-lg font-bold mb-2 font-[unbounded] text-gray-800">Активный отдых</h3>
+              <p className="text-gray-700 font-[raleway] text-sm">Прогулки на лодках, велосипеды и пешие маршруты</p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-gray-800/50 backdrop-blur-md border border-violet-500/20 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in">
-              <span className="inline-block text-4xl mb-4 bg-gradient-to-br from-purple-400 to-violet-600 bg-clip-text text-transparent">🍽️</span>
-              <h3 className="text-lg font-bold mb-2 font-[unbounded] text-white">Ресторан</h3>
-              <p className="text-gray-300 font-[raleway] text-sm">Блюда из местных экологически чистых продуктов</p>
+            <div className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-md border border-blue-200/30 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in">
+              <span className="inline-block text-4xl mb-4 bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent">🍽️</span>
+              <h3 className="text-lg font-bold mb-2 font-[unbounded] text-gray-800">Еда</h3>
+              <p className="text-gray-700 font-[raleway] text-sm">Блюда из местных экологически чистых продуктов</p>
             </div>
           </div>
         </div>

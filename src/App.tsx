@@ -15,7 +15,7 @@ function App() {
     <AuthProvider authService={defaultAuthService}>
       <Router>
         <Navbar />
-        <div className="w-full bg-black flex flex-wrap justify-around pt-16">
+        <div className="w-full bg-white flex flex-wrap justify-around pt-16 min-h-screen">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />

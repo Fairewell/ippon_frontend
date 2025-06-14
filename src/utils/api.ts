@@ -76,4 +76,24 @@ export const bookingAPI = {
   checkout: () => api.post('/bookings/checkout')
 };
 
+export const reviewAPI = {
+  getAllReviews: () => api.get('/reviews'),
+  
+  getReviewsByService: (serviceId: number) => api.get(`/reviews/service/${serviceId}`),
+  
+  createReview: (data: {
+    userId: number;
+    serviceId: number;
+    rating: number;
+    comment: string;
+  }) => api.post('/reviews', data),
+  
+  updateReview: (id: number, data: {
+    rating?: number;
+    comment?: string;
+  }) => api.put(`/reviews/${id}`, data),
+  
+  deleteReview: (id: number) => api.delete(`/reviews/${id}`)
+};
+
 export default api;

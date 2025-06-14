@@ -43,8 +43,8 @@ const Navbar: React.FC = () => {
       <nav
         className={`
           fixed top-0 left-0 right-0 z-50 overflow-hidden 
-          bg-gradient-to-br from-gray-900/80 to-violet-900/50 
-          backdrop-blur-md border-b border-violet-500/30 
+          bg-white/80 backdrop-blur-lg border-b border-gray-300/30
+          shadow-sm
           transition-all duration-300
           ${isScrolled ? 'py-2' : 'py-4'}
         `}
@@ -62,15 +62,15 @@ const Navbar: React.FC = () => {
         `}</style>
 
         {/* Декоративные элементы (фоновые круги) */}
-        <div className="absolute top-0 right-0 w-48 h-48 bg-violet-600/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full -translate-x-1/4 translate-y-1/4"></div>
+        <div className="absolute top-0 right-0 w-48 h-48 bg-blue-100/30 rounded-full -translate-y-1/2 translate-x-1/2 backdrop-blur-sm"></div>
+        <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-200/20 rounded-full -translate-x-1/4 translate-y-1/4 backdrop-blur-sm"></div>
 
         <div className="container mx-auto flex justify-between items-center relative z-10 px-4">
           {/* Логотип / название */}
           <h1
             className={`
               text-xl md:text-2xl font-bold font-[unbounded] bg-clip-text text-transparent 
-              bg-gradient-to-r from-purple-400 to-violet-600 
+              bg-gradient-to-r from-blue-500 to-blue-700
               transition-transform duration-300 hover:-translate-y-0.5
             `}
           >
@@ -87,10 +87,10 @@ const Navbar: React.FC = () => {
                 <Link
                   to={item.path}
                   className={`
-                    text-white/90 hover:text-violet-300 transition-colors duration-300 
-                    px-3 py-1 rounded-lg bg-white/10 backdrop-blur-sm 
-                    hover:bg-white/20 hover:shadow-[0_4px_30px_rgba(0,0,0,0.1)] 
-                    focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300
+                    text-gray-800 hover:text-blue-600 transition-colors duration-300
+                    px-3 py-1 rounded-lg bg-white/50 backdrop-blur-sm
+                    hover:bg-white/70 hover:shadow-sm
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300
                   `}
                 >
                   {item.title}
@@ -103,15 +103,15 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex space-x-4 animate-fade-in">
             {isAuthenticated ? (
               <div className="flex items-center space-x-4">
-                <span className="font-semibold bg-black/20 px-3 py-1 rounded-lg backdrop-blur-sm text-white/90">
+                <span className="font-semibold bg-white/50 backdrop-blur-sm px-3 py-1 rounded-lg border border-gray-300/50 text-gray-800">
                   {user?.username}
                 </span>
                 <button
                   onClick={logout}
                   className={`
-                    px-4 py-2 rounded-lg bg-gradient-to-r from-red-600/90 to-red-800/80 
-                    text-white font-medium hover:from-red-700 hover:to-red-900 
-                    transition-all duration-300 hover:shadow-lg hover:shadow-red-500/20 
+                    px-4 py-2 rounded-lg bg-red-500
+                    text-white font-medium hover:bg-red-600
+                    transition-all duration-300
                     focus:outline-none focus:ring-2 focus:ring-red-500
                   `}
                 >
@@ -123,8 +123,8 @@ const Navbar: React.FC = () => {
                 <Link
                   to="/login"
                   className={`
-                    px-4 py-2 rounded-lg bg-violet-700/80 text-white font-medium 
-                    hover:bg-violet-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-violet-500
+                    px-4 py-2 rounded-lg bg-blue-500 text-white font-medium
+                    hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500
                   `}
                 >
                   Вход
@@ -132,10 +132,10 @@ const Navbar: React.FC = () => {
                 <Link
                   to="/register"
                   className={`
-                    px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600/90 to-violet-800/80 
-                    text-white font-medium hover:from-purple-700 hover:to-violet-900 
-                    transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 
-                    focus:outline-none focus:ring-2 focus:ring-purple-500
+                    px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700
+                    text-white font-medium hover:from-blue-600 hover:to-blue-800
+                    transition-all duration-300
+                    focus:outline-none focus:ring-2 focus:ring-blue-500
                   `}
                 >
                   Регистрация
@@ -148,25 +148,25 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white focus:outline-none"
+              className="text-gray-800 focus:outline-none"
               aria-label="Toggle menu"
             >
               <div className="w-6 h-6 relative">
                 <div
                   className={`
-                    absolute w-6 h-0.5 bg-white rounded transition-all duration-300 
+                    absolute w-6 h-0.5 bg-gray-800 rounded transition-all duration-300
                     ${isMenuOpen ? 'rotate-45 top-3' : 'top-1'}
                   `}
                 ></div>
                 <div
                   className={`
-                    absolute w-6 h-0.5 bg-white rounded transition-all duration-300 
+                    absolute w-6 h-0.5 bg-gray-800 rounded transition-all duration-300
                     ${isMenuOpen ? 'opacity-0' : 'top-3'}
                   `}
                 ></div>
                 <div
                   className={`
-                    absolute w-6 h-0.5 bg-white rounded transition-all duration-300 
+                    absolute w-6 h-0.5 bg-gray-800 rounded transition-all duration-300
                     ${isMenuOpen ? '-rotate-45 top-3' : 'top-5'}
                   `}
                 ></div>
@@ -181,7 +181,7 @@ const Navbar: React.FC = () => {
       {/* ========================= */}
       <div
         className={`
-          md:hidden fixed inset-0 z-40 bg-gray-900/95 backdrop-blur-xl 
+          md:hidden fixed inset-0 z-40 bg-white/90 backdrop-blur-xl
           transition-all duration-300 ease-in-out
           ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}
         `}
@@ -197,9 +197,9 @@ const Navbar: React.FC = () => {
                 <Link
                   to={item.path}
                   className={`
-                    block text-2xl font-bold text-white/90 hover:text-violet-300 
-                    transition-colors duration-300 px-3 py-4 rounded-lg 
-                    focus:outline-none focus:ring-2 focus:ring-purple-500
+                    block text-2xl font-bold text-gray-800 hover:text-blue-600
+                    transition-colors duration-300 px-3 py-4 rounded-lg bg-white/30 backdrop-blur-sm
+                    focus:outline-none focus:ring-2 focus:ring-blue-500
                   `}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -210,10 +210,10 @@ const Navbar: React.FC = () => {
           </ul>
 
           {/* Блок авторизации в моб.меню (внизу) */}
-          <div className="mt-auto pt-8 border-t border-violet-500/30">
+          <div className="mt-auto pt-8 border-t border-gray-300">
             {isAuthenticated ? (
               <div className="flex flex-col space-y-6 animate-fade-in">
-                <span className="text-xl font-semibold bg-black/20 px-4 py-3 rounded-lg backdrop-blur-sm text-center text-white/90">
+                <span className="text-xl font-semibold bg-white/50 backdrop-blur-sm px-4 py-3 rounded-lg border border-gray-300/50 text-center text-gray-800">
                   {user?.username}
                 </span>
                 <button
@@ -222,8 +222,8 @@ const Navbar: React.FC = () => {
                     setIsMenuOpen(false);
                   }}
                   className={`
-                    px-6 py-3 text-lg rounded-lg bg-gradient-to-r from-red-600/90 to-red-800/80 
-                    text-white font-medium hover:from-red-700 hover:to-red-900 
+                    px-6 py-3 text-lg rounded-lg bg-red-500
+                    text-white font-medium hover:bg-red-600
                     transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500
                   `}
                 >
@@ -235,9 +235,9 @@ const Navbar: React.FC = () => {
                 <Link
                   to="/login"
                   className={`
-                    px-6 py-3 text-center text-lg rounded-lg bg-violet-700/80 
-                    text-white font-medium hover:bg-violet-800/90 
-                    transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-violet-500
+                    px-6 py-3 text-center text-lg rounded-lg bg-blue-500
+                    text-white font-medium hover:bg-blue-600
+                    transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500
                   `}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -246,10 +246,10 @@ const Navbar: React.FC = () => {
                 <Link
                   to="/register"
                   className={`
-                    px-6 py-3 text-center text-lg rounded-lg 
-                    bg-gradient-to-r from-purple-600/90 to-violet-800/80 
-                    text-white font-medium hover:from-purple-700 hover:to-violet-900 
-                    transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500
+                    px-6 py-3 text-center text-lg rounded-lg
+                    bg-gradient-to-r from-blue-500 to-blue-700
+                    text-white font-medium hover:from-blue-600 hover:to-blue-800
+                    transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500
                   `}
                   onClick={() => setIsMenuOpen(false)}
                 >

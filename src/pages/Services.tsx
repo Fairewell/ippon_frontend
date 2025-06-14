@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CabinCard from '../components/CabinCard';
 import { serviceAPI } from '../utils/api';
 
@@ -6,16 +7,19 @@ interface Service {
   id: number;
   name: string;
   description: string;
-  price_per_day: string; // Изменено на string, т.к. API возвращает строки
+  price_per_day: string;
+  imageurl: string; // Add imageurl from API response
 }
 
 interface EnhancedService extends Service {
   type: 'house' | 'room';
   capacity: number;
   isWeekend: boolean;
+  imageUrl: string; // Add imageUrl field
 }
 
 const Services: React.FC = () => {
+  const navigate = useNavigate();
   const [rawServices, setRawServices] = useState<Service[]>([]);
   const [enhancedServices, setEnhancedServices] = useState<EnhancedService[]>([]);
   const [filteredServices, setFilteredServices] = useState<EnhancedService[]>([]);
@@ -66,7 +70,8 @@ const Services: React.FC = () => {
         ...service,
         type,
         capacity,
-        isWeekend
+        isWeekend,
+        imageUrl: service.imageurl // Add imageUrl from API response
       };
     });
     
@@ -104,11 +109,11 @@ const Services: React.FC = () => {
     setFilteredServices(result);
   }, [enhancedServices, serviceType, dayType, sortBy, sortOrder]);
 
-  let activeButton = `bg-violet-700 text-white font-semibold italic`;
-  let disableButton = `bg-gray-800 hover:bg-gray-700`;
+  const activeButton = `bg-blue-600 text-white font-semibold italic`;
+  const disableButton = `bg-gray-200 hover:bg-gray-300 text-gray-700`;
 
   return (
-    <div className="w-full bg-gradient-to-b from-gray-900 to-black text-white min-h-screen pt-16">
+    <div className="w-full bg-white text-gray-800 min-h-screen pt-16">
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }
@@ -119,17 +124,17 @@ const Services: React.FC = () => {
           opacity: 0;
         }
       `}</style>
-      <div className="w-full px-4 py-16 bg-gradient-to-b from-transparent to-gray-800/50">
+      <div className="w-full px-4 py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center font-[unbounded] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-600">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center font-[unbounded] text-blue-800">
             Наши услуги
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-violet-700 mx-auto mb-12 rounded-full"></div>
+          <div className="h-1 w-24 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-12 rounded-full"></div>
 
           {/* Панель фильтров */}
           <div className="flex flex-wrap gap-4 mb-8 justify-center">
             <div className="flex flex-col">
-              <span className="text-gray-300 mb-1 font-[raleway] font-bold">Тип услуги:</span>
+              <span className="text-gray-700 mb-1 font-[raleway] font-bold">Тип услуги:</span>
               <div className="flex gap-2">
                 <button
                   className={`px-3 py-1 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 ${
@@ -165,7 +170,7 @@ const Services: React.FC = () => {
             </div>
             
             <div className="flex flex-col">
-              <span className="text-gray-300 mb-1 font-[raleway] font-bold">Дни:</span>
+              <span className="text-gray-700 mb-1 font-[raleway] font-bold">Дни:</span>
               <div className="flex gap-2">
                 <button
                   className={`px-3 py-1 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 ${
@@ -201,7 +206,7 @@ const Services: React.FC = () => {
             </div>
             
             <div className="flex flex-col">
-              <span className="text-gray-300 mb-1 font-[raleway] font-bold">Сортировка:</span>
+              <span className="text-gray-700 mb-1 font-[raleway] font-bold">Сортировка:</span>
               <div className="flex gap-2">
                 <button
                   className={`px-3 py-1 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 ${
@@ -242,7 +247,7 @@ const Services: React.FC = () => {
           </div>
 
           {loading && (
-            <p className="text-center text-gray-300 font-[raleway] font-medium">
+            <p className="text-center text-blue-800 font-[unbounded] font-medium">
               Загрузка услуг...
             </p>
           )}
@@ -262,11 +267,13 @@ const Services: React.FC = () => {
                   style={{ animationDelay: `${index * 0.08}s` }}
                 >
                   <CabinCard
+                    id={service.id}
                     title={`${service.name.replace(/\{.*?\}/g, '')} (${service.capacity} мест)`}
                     description={service.description.replace(/\{.*?\}/g, '')}
                     price={parseFloat(service.price_per_day)}
-                    imageUrl=""
+                    imageUrl={service.imageUrl}
                     alt={`Услуга: ${service.name}`}
+                    onBook={(id) => navigate('/booking', { state: { serviceId: id } })}
                   />
                 </div>
               ))}
